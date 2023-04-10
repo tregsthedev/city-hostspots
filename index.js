@@ -5,6 +5,19 @@
 
     // test axios GET api
     axios.get(api).then((response) => {
+      let map = L.map('map').setView([ 43.5890, -79.6441], 13);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    let marker = L.marker([43.5310490126601, -79.6276177332533]).addTo(map);
+    marker.bindPopup("<b> Port Credit Library </b><br> 21 Lakeshore Rd E, Mississauga, ON L5G 1H1").openPopup();
+
+    let marker2 = L.marker([43.5890, -79.6441]).addTo(map);
+    let marker3 = L.marker([43.5890, -79.6441]).addTo(map); 
+    
+    
       response = response.data;
 
       let list = new Map();
@@ -19,16 +32,15 @@
       // for every entry in the list map, make a paragraph with it's name and coordinates
     list.forEach((value, key) => {
       const p = document.createElement("p");
-      p.innerHTML = `${key} ${value}`;
+      p.innerHTML = `${key}`;
       document.body.appendChild(p);
     }
     );
     // console.log(list);
 
 // this isn't working
-
-  
-
+console.log(list.get("Port Credit Library"));
 })
     
- 
+var map = L.map('map').setView([51.505, -0.09], 13);
+
