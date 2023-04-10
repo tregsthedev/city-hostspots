@@ -1,4 +1,4 @@
-# 🏙️  City Hotspots
+# 🏙️  City Hotspots [WIP]
 A searchable list of all public hotspots in the City of Missisauga
 
 ### How does this work?
