@@ -22,7 +22,7 @@
 
       let list = new Map();
       response.features.forEach((element) => {
-        list.set(element.attributes.DESCRIPT, element.geometry.points);
+        list.set(element.geometry.points, element.attributes.DESCRIPT);
       });
       console.log(list);
       console.log(list.get("Port Credit Library"));
@@ -32,7 +32,7 @@
       // for every entry in the list map, make a paragraph with it's name and coordinates
     list.forEach((value, key) => {
       const p = document.createElement("p");
-      p.innerHTML = `${key}`;
+      p.innerHTML = `${key} ${value}`;
       document.body.appendChild(p);
     }
     );
