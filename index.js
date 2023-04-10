@@ -12,7 +12,7 @@
     }).addTo(map);
 
     let marker = L.marker([43.5310490126601, -79.6276177332533]).addTo(map);
-    marker.bindPopup("<b> Port Credit Library </b><br> 21 Lakeshore Rd E, Mississauga, ON L5G 1H1").openPopup();
+    marker.bindPopup("<b> Port Credit Library </b><br> 21 Lakeshore Rd E, Mississauga, ON L5G 1H1");
 
     let marker2 = L.marker([43.5890, -79.6441]).addTo(map);
     let marker3 = L.marker([43.5890, -79.6441]).addTo(map); 
@@ -32,7 +32,7 @@
       // for every entry in the list map, make a paragraph with it's name and coordinates
     list.forEach((value, key) => {
       const p = document.createElement("p");
-      p.innerHTML = `${key} ${value}`;
+      p.innerHTML = `${value} <b> ${key} </b> `;
       document.body.appendChild(p);
     }
     );
