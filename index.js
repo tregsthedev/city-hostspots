@@ -38,9 +38,14 @@ axios.get(api).then((response) => {
   const values = document.getElementById('number').innerText = list.size
   // console.log(values);
 
+  // This converts the keys (cords) into markers on the map
   list.forEach((value, key) => {
     let marker3 = L.marker(key).addTo(map)
     marker3.bindPopup(`<b> ${value} </b>`)
+  });
+
+
+  list.forEach((value, key) => {
     const p = document.createElement("p");
     p.innerHTML = `<h4> ${value} </h4> ${key} `;
     document.body.appendChild(p);
