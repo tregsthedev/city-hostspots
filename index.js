@@ -11,17 +11,7 @@ axios.get(api).then((response) => {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(map);
 
-  let icon = L.icon({
-    iconUrl: 'https://cloud-2vpc1ldjb-hack-club-bot.vercel.app/0image.png',
-    iconSize: [38, 95]
-  });
-
-  let marker = L.marker([43.5310490126601, -79.6276177332533]).addTo(map);
-  marker.bindPopup("<b> Port Credit Library </b><br> 21 Lakeshore Rd E, Mississauga, ON L5G 1H1");
-
-  let marker2 = L.marker([43.5890, -79.6441]).addTo(map);
  
-
 
   response = response.data;
 
