@@ -17,13 +17,15 @@
     let marker2 = L.marker([43.5890, -79.6441]).addTo(map);
     let marker3 = L.marker([43.5890, -79.6441]).addTo(map); 
     
-    
+   
       response = response.data;
 
       let list = new Map();
       response.features.forEach((element) => {
-        list.set(element.geometry.points, element.attributes.DESCRIPT);
-      });
+        list.set(element.geometry.points, element.attributes.DESCRIPT); // point = array
+        // alter the array of the k
+
+});
       console.log(list);
       console.log(list.get("Port Credit Library"));
       const values = document.getElementById('number').innerText=list.size
