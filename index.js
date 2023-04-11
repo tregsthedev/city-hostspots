@@ -27,8 +27,6 @@ axios.get(api).then((response) => {
 
   let list = new Map();
   response.features.forEach((element) => {
-    // alter the array of the point to be the coordinates
-    //make a new array from the values of element.geometry.points
     let cords = [element.geometry.points[0][1], element.geometry.points[0][0]]
     console.log(cords);
     list.set(cords, element.attributes.DESCRIPT)
@@ -40,8 +38,9 @@ axios.get(api).then((response) => {
   const values = document.getElementById('number').innerText = list.size
   // console.log(values);
 
-  // for every entry in the list map, make a paragraph with it's name and coordinates
   list.forEach((value, key) => {
+    let marker3 = L.marker(key).addTo(map)
+    marker3.bindPopup(`<b> ${value} </b>`)
     const p = document.createElement("p");
     p.innerHTML = `<h4> ${value} </h4> ${key} `;
     document.body.appendChild(p);
