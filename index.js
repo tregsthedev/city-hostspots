@@ -43,7 +43,7 @@ axios.get(api).then((response) => {
   // for every entry in the list map, make a paragraph with it's name and coordinates
   list.forEach((value, key) => {
     const p = document.createElement("p");
-    p.innerHTML = `${value} <b> ${key} </b> `;
+    p.innerHTML = `<h4> ${value} </h4> ${key} `;
     document.body.appendChild(p);
   }
   );
