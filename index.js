@@ -20,7 +20,7 @@ axios.get(api).then((response) => {
   marker.bindPopup("<b> Port Credit Library </b><br> 21 Lakeshore Rd E, Mississauga, ON L5G 1H1");
 
   let marker2 = L.marker([43.5890, -79.6441]).addTo(map);
-  let marker3 = L.marker([43.5790, -79.6441]).addTo(map);
+ 
 
 
   response = response.data;
@@ -53,5 +53,5 @@ axios.get(api).then((response) => {
   // console.log(list.get("Port Credit Library"));
 })
 
-var map = L.map('map').setView([51.505, -0.09], 13);
+
 
