@@ -1,12 +1,5 @@
 
-
-// I was able to get the location of the user using the navigator.geolocation.getCurrentPosition(success) function. I was able to create a marker to show the location of the user. I was able to create a map using leaflet and javascript. I was able to create a table using javascript. I was able to create a marker for each location of the wifi using javascript. I was able to create a popup for each marker with the description of the wifi location. 
-
-
-
-
-const api =
-  "https://services6.arcgis.com/hM5ymMLbxIyWTjn2/arcgis/rest/services/WiFi/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json";
+const api = "https://services6.arcgis.com/hM5ymMLbxIyWTjn2/arcgis/rest/services/WiFi/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json";
 
 // test axios GET api
 axios.get(api).then((response) => {
@@ -15,7 +8,7 @@ axios.get(api).then((response) => {
   L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
     subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
   }).addTo(map);
-  
+
 
   response = response.data;
 
@@ -25,34 +18,32 @@ axios.get(api).then((response) => {
     console.log(cords);
     list.set(cords, element.attributes.DESCRIPT)
     console.log(list)
-    
+
   });
 
-  
 
 
 
+  function findme() {
 
-function findme() {
+    // this is the sucess callback,
+    const success = (position) => {
+      console.log(position.coords.latitude)
+      let marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map).bindPopup(" <b> You are here </b> ").openPopup()
 
-  // this is the sucess callback,
-  const success = (position) => {
-    console.log(position.coords.latitude)
-let marker =  L.marker([position.coords.latitude, position.coords.longitude]).addTo(map).bindPopup(" <b> You are here </b> ").openPopup()
+    }
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success);
+    }
 
-}
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(success);
+
   }
 
-  
-}
 
 
+  findme()
 
-findme()
-
-// write a function that will display the closest wifi location to the user,
+  // write a function that will display the closest wifi location to the user,
 
   // console.log(list);
   console.log(list.get("Port Credit Library"));
@@ -74,13 +65,9 @@ findme()
     a.innerHTML = `b`;
     document.getElementById('table').appendChild(p);
     document.getElementById('table2').appendChild(a);
-  }
-  );
+  });
   // console.log(list);
 
-  
+
   // console.log(list.get("Port Credit Library"));
 })
-
-
-
