@@ -70,8 +70,8 @@ findme()
   list.forEach((value, key) => {
     const p = document.createElement("td");
     const a = document.createElement("td");
-    p.innerHTML = `${value}`;
-    a.innerHTML = `${key}`;
+    p.innerHTML = `a`;
+    a.innerHTML = `b`;
     document.getElementById('table').appendChild(p);
     document.getElementById('table2').appendChild(a);
   }
