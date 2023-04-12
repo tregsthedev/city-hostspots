@@ -11,7 +11,8 @@ axios.get(api).then((response) => {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(map);
 
- 
+
+
 
   response = response.data;
 
@@ -36,9 +37,12 @@ axios.get(api).then((response) => {
 
 
   list.forEach((value, key) => {
-    const p = document.createElement("p");
-    p.innerHTML = `<h4> ${value} </h4> ${key} `;
-    document.body.appendChild(p);
+    const p = document.createElement("td");
+    const a = document.createElement("td");
+    p.innerHTML = `${value}`;
+    a.innerHTML = `${key}`;
+    document.getElementById('table').appendChild(p);
+    document.getElementById('table2').appendChild(a);
   }
   );
   // console.log(list);
