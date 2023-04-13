@@ -6,11 +6,13 @@ const api =
 // test axios GET api
 axios.get(api).then((response) => {
   let map = L.map('map').setView([43.5890, -79.6441], 13);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  // set the layer to google map
+  L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+    maxZoom: 20,
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
   }).addTo(map);
-
+  
+  
 
 
 
@@ -35,6 +37,7 @@ axios.get(api).then((response) => {
     marker3.bindPopup(`<b> ${value} </b>`)
   });
 
+  let marker5 = L.marker(key)
 
   list.forEach((value, key) => {
     const p = document.createElement("td");
