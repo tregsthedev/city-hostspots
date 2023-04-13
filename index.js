@@ -8,23 +8,10 @@ axios.get(api).then((response) => {
   let map = L.map('map').setView([43.5890, -79.6441], 13);
   // set the layer to google map
   L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-    maxZoom: 12,
+  maxZoom: 12,
     subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
   }).addTo(map);
   
-  
-
-function getCords() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(success, error);
-
-
-  }
-  else {
-    alert("This function is not supported on your browser. Please try another one!");
-  }
-}
-
 
   response = response.data;
 
@@ -36,6 +23,25 @@ function getCords() {
     console.log(list)
     
   });
+
+
+
+function findme() {
+
+  // this is the sucess callback,
+  const success = (position) => {
+let marker =  L.marker([position.coords.latitude, position.coords.longitude]).addTo(map).bindPopup("You are here").openPopup()
+marker.icon.classList.add("red")
+}
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(success);
+  }
+  
+}
+
+findme()
+
+
   // console.log(list);
   console.log(list.get("Port Credit Library"));
   const values = document.getElementById('number').innerText = list.size

@@ -7,7 +7,6 @@
     <title>Missisauga Hotspots</title>
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
-    <script src="index.js"> </script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
     crossorigin=""/>
@@ -66,9 +65,14 @@ h3 {
 #table, #table2 {
   border: 1px black solid;
 }
+
+.red {
+  color: red;
+}
     </style>
 </head>
 <body>
+  <script src="index.js"> </script>
         <div className="App">
           <div classname="header">
           <h1> 🏙️ Missisauga Indoor Hotspots </h1>
@@ -77,9 +81,7 @@ h3 {
             Number of hotspots: <span id="number"> </span>
           </h3>
           </div>
-          <button style="background-color: rgb(90, 90, 235);">
-          Find my location
-          </button>
+         <button id="findme">Get Location</button>
           <div id="map"></div>
     
           <table>
@@ -95,6 +97,6 @@ h3 {
             </tr>
           </table> 
         </div>
-
+  
 </body>
 </html>
