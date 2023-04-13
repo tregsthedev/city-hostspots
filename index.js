@@ -8,12 +8,22 @@ axios.get(api).then((response) => {
   let map = L.map('map').setView([43.5890, -79.6441], 13);
   // set the layer to google map
   L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-    maxZoom: 20,
+    maxZoom: 12,
     subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
   }).addTo(map);
   
   
 
+function getCords() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(success, error);
+
+
+  }
+  else {
+    alert("This function is not supported on your browser. Please try another one!");
+  }
+}
 
 
   response = response.data;
