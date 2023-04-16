@@ -1,5 +1,10 @@
 
 
+// I was able to get the location of the user using the navigator.geolocation.getCurrentPosition(success) function. I was able to create a marker to show the location of the user. I was able to create a map using leaflet and javascript. I was able to create a table using javascript. I was able to create a marker for each location of the wifi using javascript. I was able to create a popup for each marker with the description of the wifi location. 
+
+
+
+
 const api =
   "https://services6.arcgis.com/hM5ymMLbxIyWTjn2/arcgis/rest/services/WiFi/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json";
 
@@ -8,7 +13,6 @@ axios.get(api).then((response) => {
   let map = L.map('map').setView([43.5890, -79.6441], 13);
   // set the layer to google map
   L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-  maxZoom: 12,
     subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
   }).addTo(map);
   
@@ -24,23 +28,31 @@ axios.get(api).then((response) => {
     
   });
 
+  
+
+
 
 
 function findme() {
 
   // this is the sucess callback,
   const success = (position) => {
-let marker =  L.marker([position.coords.latitude, position.coords.longitude]).addTo(map).bindPopup("You are here").openPopup()
-marker.icon.classList.add("red")
+    console.log(position.coords.latitude)
+let marker =  L.marker([position.coords.latitude, position.coords.longitude]).addTo(map).bindPopup(" <b> You are here </b> ").openPopup()
+
 }
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(success);
   }
+
   
 }
 
+
+
 findme()
 
+// write a function that will display the closest wifi location to the user,
 
   // console.log(list);
   console.log(list.get("Port Credit Library"));
