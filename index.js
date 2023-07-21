@@ -1,6 +1,14 @@
 
 const api = "https://services6.arcgis.com/hM5ymMLbxIyWTjn2/arcgis/rest/services/WiFi/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json";
 
+getHotspots()
+
+async function getHotspots() {
+  const request = await axios.get(api)
+ let response = request.data
+  console.log(response)
+  console.log("hi")
+}
 // test axios GET api
 axios.get(api).then((response) => {
   let map = L.map('map').setView([43.5890, -79.6441], 13);
